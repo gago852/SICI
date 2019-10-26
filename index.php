@@ -8,13 +8,13 @@ if ( ($_SESSION["codigo"]) =='' ) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Software de gestion de inventario">
+    <meta name="author" content="Aldair Jimenez y Gabriel Gomez">
     <link rel="icon" href="img/Favicon/favicon3.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>TechProSys</title>
+    <title>SICI</title>
 
     <!-- Bootstrap core CSS -->
     
@@ -40,7 +40,7 @@ if ( ($_SESSION["codigo"]) =='' ) {
         <strong>Error!</strong> Usuario o contraseña incorrectos.
       </div>
       <input type="submit" value="Ingresar" class="btn btn-lg btn-primary btn-block">
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+      <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
     </form>
     <?php
         if (isset($_POST['usu']) && isset($_POST['pass'])) {

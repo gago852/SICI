@@ -9,15 +9,15 @@ if ( ($_SESSION["codigo"]) !='' ) {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="erick Bernett">
+    <meta name="description" content="Software de gestion de inventario">
+    <meta name="author" content="Aldair Jimenez y Gabriel Gomez">
     <link rel="icon" href="img/Favicon/favicon3.png">
   <style>
     .esconder{
       display: none;
     }
   </style>
-    <title>Cambiar Contraseña-TechProSys</title>
+    <title>Cambiar Contraseña-SICI</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@ if ( ($_SESSION["codigo"]) !='' ) {
 
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Techprosys-<?php echo $_SESSION['usuario']; ?></a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">SICI-<?php echo $_SESSION['usuario']; ?></a>
       <div class="form-control form-control-dark w-100" id="input"></div>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">

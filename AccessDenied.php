@@ -8,11 +8,11 @@ if ( ($_SESSION["codigo"]) !='' ) {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="erick Bernett">
+    <meta name="description" content="Software de gestion de inventario">
+    <meta name="author" content="Aldair Jimenez y Gabriel Gomez">
     <link rel="icon" href="img/Favicon/favicon3.png">
 
-    <title>Acceso Denegado-TechProSys</title>
+    <title>Acceso Denegado-SICI</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,7 @@ if ( ($_SESSION["codigo"]) !='' ) {
 
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Techprosys-<?php echo $_SESSION['usuario']; ?></a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">SICI-<?php echo $_SESSION['usuario']; ?></a>
       <input class="form-control form-control-dark " id="input" type="text" placeholder="Buscar" aria-label="Buscar">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">

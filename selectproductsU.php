@@ -24,7 +24,7 @@
 
                   <td><?php echo $res["Descripcion"]; ?></td>
                   <td><?php echo $res["precio"]; ?></td>
-                  <td><a href="viewproduct.php?id=<?php echo $res["codigo"]; ?>" class="nav-item" title="Ver Producto" style="color: green;"><i data-feather="file-text"></i></a> - <a href="#" title="Editar Producto"> <span data-feather="edit"></span></a> -<a href="#" title="Eliminar Producto" style="color: red;">  <span data-feather="file-minus"></span></a></td>
+                  <td><a href="viewproduct.php?id=<?php echo $res["codigo"]; ?>" class="nav-item" title="Ver Producto" style="color: green;"><i data-feather="file-text"></i></a> - <a href="#" title="Editar Producto"> <span data-feather="edit"></span></a> -<a href="deleteproduct.php?id=<?php echo $res["codigo"]; ?>" title="Eliminar Producto" style="color: red;">  <span data-feather="file-minus"></span></a></td>
                 </tr>
               <?php
                     } 

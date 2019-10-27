@@ -16,7 +16,7 @@ if ( ($_SESSION["codigo"]) !='' ) {
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="description" content="Software de gestion de inventario">
     <meta name="author" content="Aldair Jimenez y Gabriel Gomez">
-    <link rel="icon" href="img/Favicon/favicon3.png">
+    <link rel="icon" href="img/Favicon/faviconSICI.png">
 
     <title>Nuevo Usuario-SICI</title>
     <style type="text/css">

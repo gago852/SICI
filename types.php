@@ -18,7 +18,7 @@ if ( ($_SESSION["codigo"]) !='' ) {
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="description" content="Software de gestion de inventario">
     <meta name="author" content="Aldair Jimenez y Gabriel Gomez">
-    <link rel="icon" href="img/Favicon/favicon3.png">
+    <link rel="icon" href="img/Favicon/faviconSICI.png">
 
     <title>Tipos de producto-SICI</title>
 
@@ -35,7 +35,7 @@ if ( ($_SESSION["codigo"]) !='' ) {
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">SICI-<?php echo $_SESSION['usuario']; ?></a>
-      <input class="form-control form-control-dark " id="input" type="text" placeholder="Buscar" aria-label="Buscar">
+      <div class="form-control form-control-dark "></div>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
           <div class="menu_bar">
@@ -157,8 +157,8 @@ if ( ($_SESSION["codigo"]) !='' ) {
                    <?php $id= $res["usuario"] ?>
 
                   <td> 
-                      <?php echo "<a href='edituser.php?id=".$id."' title='Editar Usuario'> <span data-feather='minus-circle'></span></a>"; ?> - 
-                      <?php echo "<a href='#'  title='Eliminar Usuario'> <span data-feather='x-circle' style='color:red'></span></a>"; ?>
+                      <?php echo "<a href='#?id=".$id."' title='Editar tipo'> <span data-feather='minus-circle'></span></a>"; ?> - 
+                      <?php echo "<a href='#?id=".$id."'  title='Eliminar tipo'> <span data-feather='x-circle' style='color:red'></span></a>"; ?>
                   </td>
                 </tr>
               </tbody>

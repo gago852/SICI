@@ -8,8 +8,8 @@ $pass_hash=md5($pass);
 
 $sql=$mysqli->query("SELECT * FROM usuarios WHERE usuario ='$usu' AND pass='$pass_hash'");
 $num_res=mysqli_fetch_array($sql);
-if ($num_res>0) {
-	header("Location:dashboard.php");
+if ($num_res>0) {  
+      header("Location:dashboard.php");   
 }else{
 	echo "<script type='text/javascript'>
    var element = document.getElementById('esconder');

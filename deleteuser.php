@@ -1,5 +1,5 @@
 <?php 
-$mysqli = new mysqli("localhost", "root", "", "dbtechprosys");
+$mysqli = new mysqli("localhost", "id11379003_root", "123456789", "id11379003_dbtechprosys");
 
 EliminarUsuario($_GET['id'], $mysqli);
 

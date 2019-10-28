@@ -1,6 +1,6 @@
 <?php
 session_start();
-$mysqli = new mysqli("localhost", "root", "", "dbtechprosys");
+$mysqli = new mysqli("localhost", "id11379003_root", "123456789", "id11379003_dbtechprosys");
 
 ModificarUsuario($_POST['nombre'], $_POST['apellido'], $_POST['usuario'], $_POST['id'], $mysqli);
 

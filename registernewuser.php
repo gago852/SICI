@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['nombre'])) {
 	
-	$mysqli = new mysqli("localhost", "root", "", "dbtechprosys");
+	$mysqli = new mysqli("localhost", "id11379003_root", "123456789", "id11379003_dbtechprosys");
 
     $nombre=$_POST['nombre'];
     $apellido=$_POST['apellido'];

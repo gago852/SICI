@@ -19,7 +19,7 @@
 }
  
 .header nav ul li a:hover {
-	background:#494e53;
+	background:#007bff;
 	color: white;
 	text-decoration: none;
 }
@@ -29,7 +29,7 @@
 		margin:0;
 		margin-top: 1.4%;
 		position: fixed;
-    background: #343a40;
+    	background: #007bff;
 	}
  
 	.header nav ul li {
@@ -46,7 +46,7 @@
  
 	.menu_bar .bt-menu {
 		display:block;
-		background:#343a40;
+		background:#007bff;
 		color:#fff;
 		text-decoration:none;
 		-webkit-box-sizing:border-box;

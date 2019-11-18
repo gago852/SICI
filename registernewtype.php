@@ -2,7 +2,7 @@
 session_start();
 if (isset($_POST['nombre'])) {
 	
-	$mysqli = new mysqli("localhost", "id11379003_root", "123456789", "id11379003_dbtechprosys");
+	$mysqli = new mysqli("localhost", "root", "", "dbtechprosys");
 
     $nombre=$_POST['nombre'];
     $usuario=$_SESSION["codigo"];

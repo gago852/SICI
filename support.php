@@ -18,7 +18,7 @@ if ( ($_SESSION["codigo"]) !='' ) {
     <meta name="author" content="Aldair Jimenez y Gabriel Gomez">
     <link rel="icon" href="img/Favicon/faviconSICI.png">
 
-    <title>Nuevo Usuario-SICI</title>
+    <title>Soporte-SICI</title>
     <style type="text/css">
       .esconder{display: none;}
     </style>
@@ -85,7 +85,7 @@ if ( ($_SESSION["codigo"]) !='' ) {
               
               ?>
               <li class="nav-item">
-                <a class="nav-link active" href="users.php">
+                <a class="nav-link" href="users.php">
                   <span data-feather="users"></span>
                   Usuarios
                 </a>
@@ -104,7 +104,7 @@ if ( ($_SESSION["codigo"]) !='' ) {
               </li>
               <?php } ?>
               <li class="nav-item">
-                <a class="nav-link" href="support.php">
+                <a class="nav-link active" href="support.php">
                   <span data-feather="bar-chart-2"></span>
                   Soporte
                 </a>
@@ -115,79 +115,36 @@ if ( ($_SESSION["codigo"]) !='' ) {
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2  border-bottom">
-            <h1 class="h3">Nuevo Usuario</h1>
+            <h1 class="h3">Soporte</h1>
           </div>
           <div class="esconder alert alert-success  alert-dismissible" id="esconder" style="margin-top:18px;">
               <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-              <strong>Exito!</strong> Producto añadido exitosamente.
+              <strong>Exito!</strong> Soporte enviado exitosamente.
            </div>
+           <br>
+           <br>
           <div class="text-center">
-          <form class="needs-validation" action="registernewuser.php" method="POST" novalidate>
-            <div class="form-row">
-              <div class="col-md-4 mb-3">
-                <label for="validationCustom01">Nombre</label>
-                <input type="text" class="form-control" name="nombre" id="validationCustom01" placeholder="Nombre"  required>
-                <div class="invalid-feedback">
-                  Ingrese su nombre
+        
+        <form class="form-horizontal" id="contactform" role="form" method="post" action="contact-form.php">
+           
+            <p>Si tiene alguna Pregunta, Queja, Reclamo, Sugerencia o Apelaciones, no dude en enviarnos un mensaje.  ¡Respondemos dentro de las 24 horas!</p>
+            <div class="contact-form">
+               <div class="form-group">
+                 <input id="name" type="text" placeholder="Nombre" class="form-control"  name="name">
+             </div> 
+               <div class="form-group">
+                 <input type="email" placeholder="Email*" class="form-control" name="email">
                 </div>
-                <div class="valid-feedback">
-                  Perfecto!
-                </div>
+                <div class="form-group">
+                  <input type="text" placeholder="Teléfono*" class="form-control" name="phone">
               </div>
-            <div class="col-md-4 mb-3">
-              <label for="validationCustom02">Apellido</label>
-              <input type="text" class="form-control" name="apellido" id="validationCustom02" placeholder="Apellido"  required>
-                <div class="invalid-feedback">
-                  Ingrese su apellido
-                </div>
-             <div class="valid-feedback">
-                Perfecto!
+                 <div class="form-group">
+                   <textarea class="form-control input-message" placeholder="Mensaje" rows="7" name="message"></textarea>
               </div>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="validationCustomUsername">Usuario</label>
-              <div class="input-group">
-                <input type="text" class="form-control" name="usuario" id="validationCustomUsername" placeholder="Usuario" aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                  Ingrese Usuario
-                </div>
-                <div class="valid-feedback">
-                  Perfecto!
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="col-md-6 mb-3">
-              <label for="validationCustom03">Contraseña</label>
-              <input type="password" class="form-control" name="password" id="validationCustom03" placeholder="Contraseña" minlength="8" required>
-              <div class="invalid-feedback">
-                Ingrese Contraseña
-              </div>
-              <div class="invalid-feedback">
-                Debe tener minimo 8 caracteres!
-              </div>
-              <div class="valid-feedback">
-                  Perfecto!
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationCustom04">Rol</label>
-              <select class="custom-select" name="rol" required>
-                <option value="">--Seleccione</option>
-                <option value="1">Administrador</option>
-                <option value="2">Vendedor</option>
-              </select>
-              <div class="invalid-feedback">
-                Seleccione Rol
-              </div>
-              <div class="valid-feedback">
-                  Perfecto!
-              </div>
-            </div>
-          </div>
-            <button class="btn btn-primary" type="submit">Crear</button>
-        </form>
+                 <input type="hidden" name="action" value="sendEmail"/>
+                 <button id="submit" name="submit" type="submit" value="Send" class="btn btn-primary"> Enviar Mensaje </button>
+               </div>
+            </form>
           </div>
          </main>
       </div>

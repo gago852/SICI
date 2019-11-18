@@ -1,6 +1,6 @@
 <?php
 	if (isset($_POST['Descripcion'])) {
-		$mysqli = new mysqli("localhost", "id11379003_root", "123456789", "id11379003_dbtechprosys");
+		$mysqli = new mysqli("localhost", "root", "", "dbtechprosys");
 		NuevoProducto($_POST['tipo'], $_POST['modelo'], $_POST['Descripcion'], $_POST['precio'], $_SESSION["codigo"], $mysqli);
 	}
 	function NuevoProducto($tipo, $modelo, $descripcion, $precio, $codigo, $mysqli){

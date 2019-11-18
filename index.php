@@ -27,7 +27,7 @@ if ( ($_SESSION["codigo"]) =='' ) {
 
   <body class="text-center">
     <form action="index.php" method="POST" class="form-signin">
-      <img class="mb-3ss" src="img/Logo/Logo.png" alt="SICI 2019" width="260" height="90">
+      <img class="mb-3ss" src="img/Logo/logo.png" alt="SICI 2019" width="260" height="90">
       <h1 class="h3 mb-3 font-weight-normal">Inicie Sesion</h1>
 
       <label for="usu" class="sr-only">Usuario</label>

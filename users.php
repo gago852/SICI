@@ -32,9 +32,9 @@ if ( ($_SESSION["codigo"]) !='' ) {
   </head>
 
   <body>
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">SICI-<?php echo $_SESSION['usuario']; ?></a>
-      <div class="form-control form-control-dark "></div>
+    <nav class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><img src="img/Logo/logo2.png"> - <?php echo $_SESSION['usuario']; ?></a>
+      <input class="form-control form-control-dark ">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
           <div class="menu_bar">
@@ -103,9 +103,9 @@ if ( ($_SESSION["codigo"]) !='' ) {
               </li>
               <?php } ?>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="support.php">
                   <span data-feather="bar-chart-2"></span>
-                  Reportes
+                  Soporte
                 </a>
               </li>
             </ul>

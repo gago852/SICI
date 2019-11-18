@@ -154,11 +154,11 @@ if ( ($_SESSION["codigo"]) !='' ) {
                   <td><?php $id= $res["usuario"] ?> <?php echo "<a href='viewuser.php?id=".$id."'>" . $res2['nom_usu'].' '.$res2['ape_usu'] . "</a>"; ?> </td>
                   <?php } ?>
                    
-                   <?php $id= $res["usuario"] ?>
+                   <?php $idtipo= $res["cod_typeproduct"] ?>
 
                   <td> 
-                      <?php echo "<a href='#?id=".$id."' title='Editar tipo'> <span data-feather='minus-circle'></span></a>"; ?> - 
-                      <?php echo "<a href='#?id=".$id."'  title='Eliminar tipo'> <span data-feather='x-circle' style='color:red'></span></a>"; ?>
+                      <?php echo "<a href='edittype.php?id=".$idtipo."' title='Editar tipo'> <span data-feather='minus-circle'></span></a>"; ?> - 
+                      <?php echo "<a href='deleteType.php?id=".$idtipo."'  title='Eliminar tipo'> <span data-feather='x-circle' style='color:red'></span></a>"; ?>
                   </td>
                 </tr>
               </tbody>

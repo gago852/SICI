@@ -1,11 +1,29 @@
 <?php
-session_start();
-require_once 'conexion/conexion.php';
-header("Content-Type: text/html;charset=utf-8");
- if (($_SESSION["rol"]) == 2 ) 
- {
-    header("Location:AccessDenied.php");  
- }  
+session_start(); 
+ ?>
+ <?php                
+  require_once 'conexion/conexion.php';
+  $Idmodel = $_GET['id'];
+  $sql=("select * from model_product where cod_model = $Idmodel");   
+  $num_res=$mysqli->query($sql);             
+  $res=mysqli_fetch_array($num_res);
+  $id=$res["cod_model"];
+  $nombre=$res["nombre"];
+  $usuario=$res["usuario"];
+  ?>
+  <?php 
+  require_once 'conexion/conexion.php';
+  $Idmodel = $_GET['id'];
+
+  $consul=("SELECT * FROM model_product WHERE cod_model = $Idmodel");
+  $consulta=$mysqli->query($consul);
+  $num_rows=mysqli_fetch_array($consulta);
+  $creatorUser=$num_rows['usuario'];
+
+  if (($num_rows==0) || (($_SESSION["codigo"])!=$creatorUser)){ 
+    header("Location:AccessDenied.php");
+  }
+
  ?>
 <?php 
 if ( ($_SESSION["codigo"]) !='' ) {
@@ -20,42 +38,16 @@ if ( ($_SESSION["codigo"]) !='' ) {
     <meta name="author" content="Aldair Jimenez y Gabriel Gomez">
     <link rel="icon" href="img/Favicon/faviconSICI.png">
 
-    <title>Modelos de producto-SICI</title>
+    <title>Editar Modelo-SICI</title>
 
     <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
 
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/navbutton.css">
     <link href="css/fontawesome-all.css" rel="stylesheet">
-     <!--Scripts DataTable-->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-    <script>
-      $(document).ready(function(){
-        $('#TableModels').DataTable({
-          "language": {
-            "lengthMenu": "Mostrar _MENU_ resultados por página",
-            "zeroRecords": "Nada encontrado, lo sentimos",
-            "info": "Viendo página _PAGE_ de _PAGES_",
-            "infoEmpty": "No hay registros disponibles",
-            "search":         "Buscar:",
-            "loadingRecords": "Cargando...",
-            "processing":     "Procesando...",
-            "infoFiltered": "(Filtrado de _MAX_ registros totales)",
-            "paginate": {
-                          "first":      "First",
-                          "last":       "Last",
-                          "next":       "Siguiente",
-                          "previous":   "Anterior"
-                        },
-                    }
-        });
-    });
-    </script>
   </head>
 
   <body>
@@ -123,7 +115,7 @@ if ( ($_SESSION["codigo"]) !='' ) {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active " href="models.php">
+                <a class="nav-link active" href="models.php">
                   <span data-feather="list"></span>
                   Modelos Productos
                 </a>
@@ -141,68 +133,39 @@ if ( ($_SESSION["codigo"]) !='' ) {
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2  border-bottom">
-            <h1 class="h3">Modelos de productos</h1>
-            <?php if (($_SESSION["rol"]) == 1) {
-              
-              ?>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-                <a href="newmodel.php" class="btn btn-sm btn-outline-secondary"><span data-feather="plus-circle"></span> Nuevo Modelo</a>
-              </div>
-            </div>
-            <?php } ?>
+            <h1 class="h3">Editar Modelo</h1>
           </div>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm" id="TableModels">
-              <thead>
-                <tr>
-                  <th>Codigo</th>
-                  <th>Nombre</th>
-                  <th>Usuario</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-               <tbody>
-              <?php                
-                require_once 'conexion/conexion.php';
-                $sql=$mysqli->query('select * from model_product');                
-                while($res=mysqli_fetch_array($sql)){
-                ?>
-             
-                <tr>
-                  <td><?php echo $res["cod_model"]; ?></td>
-                  <td><?php echo $res["nombre"]; ?></td>
-
-                  <!--Mostrando Usuario que creo el tipo-->
-                   <?php 
-                        $consulta=$mysqli->query('select * from usuarios where cod_usu="'.$res['usuario'].'"');
-                        while($res2=mysqli_fetch_array($consulta)){ 
-                   ?>
-                  <td><?php $id= $res["usuario"] ?> <?php echo "<a href='viewuser.php?id=".$id."'>" . $res2['nom_usu'].' '.$res2['ape_usu'] . "</a>"; ?> </td>
-                  <?php } ?>
-                   
-                  <?php $idModel= $res["cod_model"] ?>
-
-                  <td> 
-                      <?php echo "<a href='editModel.php?id=".$idModel."' title='Editar Marca'> <span data-feather='minus-circle'></span></a>"; ?> - 
-                      <?php echo "<a href='deleteModel.php?id=".$idModel."'  title='Eliminar Marca'> <span data-feather='x-circle' style='color:red'></span></a>"; ?>
-                  </td>
-                </tr>
-                <?php
-                    }
-                ?>
-              </tbody>
-              
-            </table>
+          <div class="text-center">
+          <form class="needs-validation" action="registerEditModel.php" method="POST" novalidate>
+          <input type="hidden" name="id" value="<?php echo $Idmodel; ?>">
+            <div class="form-row">
+              <div class="col-md-12 mb-3">
+                <label for="validationCustom01">Nombre</label>
+                <input type="text" class="form-control" name="nombre" id="validationCustom01" value="<?php echo $nombre; ?>"  required>
+                <div class="invalid-feedback">
+                  Ingrese Nombre de la marca
+                </div>
+                <div class="valid-feedback">
+                  Perfecto!
+                </div>
+              </div>            
           </div>
-        </main>
+            <button class="btn btn-primary" type="submit">editar</button>
+            <a href="types.php" class="btn btn-primary">Volver</a>
+        </form>
+          </div>
+         </main>
       </div>
     </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script src="js/navbutton.js"></script>
@@ -221,37 +184,26 @@ if ( ($_SESSION["codigo"]) !='' ) {
       feather.replace()
     </script>
 
-    <!-- Graphs -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     <script>
-      var ctx = document.getElementById("myChart");
-      var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          datasets: [{
-            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
         }
-      });
-    </script> -->
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
   </body>
 </html>
 <?php } else {
